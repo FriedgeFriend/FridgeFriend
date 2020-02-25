@@ -2,7 +2,7 @@
 *Fridge Friend* is an Android based app intended to find recipes based on a selected list of ingredients. Additional features will be available to logged in users. The goal of this app is to help college students make the most of the fresh foods they buy. This will help them save money and eat healthier.
 
 **Main Functionality**
-MainActivity is a list of selectable buttons correlating to ingredients
+* MainActivity is a list of selectable buttons correlating to ingredients
 
 **Additional Functionality** 
 Available upon login. 
