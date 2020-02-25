@@ -11,7 +11,7 @@ Available upon login.
 * Upload Recipes
 * Rate and Comment on recipes 
 * Fridge Profile 
-- Can be automatically updated by linking their account to a participating grocery store 
-- Can manually and or remove ingredients
-- Optional notifications to remind user to use ingredients before they spoil 
-- Barcode scanner to add ingredients 
+  - Can be automatically updated by linking their account to a participating grocery store 
+  - Can manually and or remove ingredients
+  - Optional notifications to remind user to use ingredients before they spoil 
+  - Barcode scanner to add ingredients 
