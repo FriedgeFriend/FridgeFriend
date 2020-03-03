@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">FridgeFriend</string>
     <string name="FridgeFrindTile">Fridge Friend</string>
+    <string name="my_app_title">Fridge Friend</string>
 </resources>

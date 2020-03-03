@@ -9,8 +9,7 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingTop="16dp"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.android.FridgeFriend.MainActivity"
+    tools:context = "com.example.FridgeFriend:headerLayout"
     tools:showIn="@layout/app_bar_main">
 
     <TextView
