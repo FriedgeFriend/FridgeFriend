@@ -105,7 +105,6 @@ public class MainActivity extends AppCompatActivity {
     public void trackItems(View view){
         count++;
         Log.d(LOG_TAG, "Count" + count);
-        //
     }
 
 }

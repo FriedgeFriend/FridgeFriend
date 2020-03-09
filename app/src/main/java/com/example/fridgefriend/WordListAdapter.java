@@ -1,6 +1,7 @@
 package com.example.fridgefriend;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,8 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
 
     private final LinkedList<String> mWordList;
     private LayoutInflater mInflater;
+
+    private static final String LOG_TAG = MainActivity.class.getSimpleName();
 
     public WordListAdapter(Context context, LinkedList<String> wordList) {
         mInflater = LayoutInflater.from(context);
@@ -62,6 +65,7 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
             // Notify the adapter, that the data has changed so it can
             // update the RecyclerView to display the data.
             mAdapter.notifyDataSetChanged();
+            Log.d(LOG_TAG, "Button clicked!" + element);
         }
     }
 
