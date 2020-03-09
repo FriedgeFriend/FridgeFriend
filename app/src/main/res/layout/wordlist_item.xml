@@ -14,6 +14,7 @@
 
        <Button
         android:id="@+id/word"
-        style="@style/word_title"/>
+        style="@style/word_title"
+        android:onClick="trackItems"/>
 
 </LinearLayout>

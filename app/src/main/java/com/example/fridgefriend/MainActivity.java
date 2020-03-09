@@ -4,13 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import androidx.appcompat.widget.Toolbar;
 
+
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 
 import java.util.LinkedList;
 
@@ -19,6 +22,13 @@ public class MainActivity extends AppCompatActivity {
     private final LinkedList<String> mWordList = new LinkedList<>();
     private RecyclerView mRecyclerView;
     private WordListAdapter mAdapter;
+
+    private static final String LOG_TAG = MainActivity.class.getSimpleName();
+    public static final String EXTRA_MESSAGE = "com.example.android.twoactivities.extra.MESSAGE";
+    public static final int TEXT_REQUEST = 1; // Unique tag for the intent reply
+    private EditText mMessageEditText;
+
+    private Integer count = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,13 +39,7 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int wordListSize = mWordList.size();
-                // Add a new word to the wordList.
-                mWordList.addLast("+ Word " + wordListSize);
-                // Notify the adapter, that the data has changed.
-                mRecyclerView.getAdapter().notifyItemInserted(wordListSize);
-                // Scroll to the bottom.
-                mRecyclerView.smoothScrollToPosition(wordListSize);
+                launchSecondActivity(this);
             }
         });
 
@@ -67,7 +71,8 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_login:
-               // change to mockup page
+                Intent intent = new Intent(this, RecipeActivity.class);
+                startActivity(intent);
                 return true;
             case R.id.action_recipe:
                 // change to mockup page
@@ -87,5 +92,20 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void launchSecondActivity(View.OnClickListener view) {
+        Log.d(LOG_TAG, "Button clicked!");
+        //Intent intent = new Intent(this, RecipeActivity.class);
+        // String message = mMessageEditText.getText().toString();
+        // intent.putExtra(EXTRA_MESSAGE, message);
+        // startActivityForResult(intent, TEXT_REQUEST);
+        Intent intent = new Intent(this, RecipeActivity.class);
+        startActivity(intent);
+    }
+
+    public void trackItems(View view){
+        count++;
+        Log.d(LOG_TAG, "Count" + count);
+        //
+    }
 
 }
