@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">FridgeFriend</string>
+    <string name="log_ing">Login</string>
+    <string name="submitRecipe">Submit Recipe</string>
+    <string name="FridgeProfile">Fridge Profile</string>
+    <string name="settings">Settings</string>
+    <string name="action_search">Search</string>
 </resources>
