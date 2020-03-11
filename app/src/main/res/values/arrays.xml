@@ -1,0 +1,31 @@
+<resources>
+    <!-- Sort By Settings -->
+    <string-array name="sort_entries">
+        <item>Least Missing Ingredients</item>
+        <item>Most Missing Ingredients</item>
+        <item>Least Ingredients Total</item>
+        <item>Most Ingredients Total</item>
+    </string-array>
+    <string-array name="sort_values">
+        <item>leastMissing</item>
+        <item>mostMissing</item>
+        <item>leastTotal</item>
+        <item>mostTotal</item>
+    </string-array>
+
+    <!-- Filter Out Settings -->
+    <string-array name="filter_entries">
+        <item>Peanuts</item>
+        <item>Gluten</item>
+        <item>Meat</item>
+        <item>Dairy</item>
+    </string-array>
+
+    <string-array name="filter_values">
+        <item>peanuts</item>
+        <item>gluten</item>
+        <item>meat</item>
+        <item>dairy</item>
+    </string-array>
+
+</resources>

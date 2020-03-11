@@ -73,8 +73,8 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_login:
-                Intent intent = new Intent(this, LoginActivity.class);
-                startActivity(intent);
+                Intent intentLogin = new Intent(this, LoginActivity.class);
+                startActivity(intentLogin);
                 return true;
             case R.id.action_recipe:
                 // change to mockup page
@@ -83,7 +83,8 @@ public class MainActivity extends AppCompatActivity {
                 // change to mockup page
                 return true;
             case R.id.action_settings:
-                // change to mockup  page
+                Intent intentSettings = new Intent(this, SettingsActivity.class);
+                startActivity(intentSettings);
                 return true;
             case R.id.action_search:
                 // search page for word
