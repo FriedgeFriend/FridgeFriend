@@ -35,4 +35,24 @@
     <string name="sort_title">Sort By</string>
     <string name="filter_title">Filter Out</string>
 
+    <!-- Upload Recipes -->
+    <string name="title_activity_upload_recipe">Upload Recipe</string>
+    <string name="uploadInstructions">Recipes will be reviewed and uploaded manualy.</string>
+    <string name="title_label_text">Recipe Title</string>
+    <string name="enter_title_hint">Name of Recipe</string>
+    <string name="time_label_string">Time</string>
+    <string-array name="labels_array">
+        <item>Minutes</item>
+        <item>Hours</item>
+        <item>Days</item>
+        <item>Months</item>
+    </string-array>
+    <string name="tagPrefrence_title">Tags</string>
+    <string name="tag_label_string">Tags</string>
+    <string name="tags">Tags</string>
+    <string name="tag_peanuts">Peanuts</string>
+    <string name="tag_glutten">Glutten</string>
+    <string name="tag_meat">Meat</string>
+    <string name="tag_dairy">Dairy</string>
+
 </resources>

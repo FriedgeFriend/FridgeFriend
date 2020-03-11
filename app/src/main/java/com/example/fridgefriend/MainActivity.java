@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fridgefriend.ui.login.LoginActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 
 import android.content.Intent;
@@ -77,7 +78,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intentLogin);
                 return true;
             case R.id.action_recipe:
-                // change to mockup page
+                Intent intentUpload = new Intent(this, UploadRecipeActivity.class);
+                startActivity(intentUpload);
                 return true;
             case R.id.action_fprofile:
                 // change to mockup page
@@ -107,6 +109,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void trackItems(View view){
         count++;
+        Snackbar.make(view, "Item Selected", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show();
         Log.d(LOG_TAG, "Count" + count);
     }
 
