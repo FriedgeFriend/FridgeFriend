@@ -58,7 +58,7 @@
         app:layout_constraintTop_toBottomOf="@+id/name_text" />
     <EditText
         android:id="@+id/time_text"
-        android:layout_width="80dp"
+        android:layout_width="60dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
@@ -66,7 +66,6 @@
         android:inputType="number"
         app:layout_constraintBaseline_toBaselineOf="@+id/time_label"
         app:layout_constraintStart_toEndOf="@+id/time_label" />
-
     <Spinner
         android:id="@+id/label_spinner"
         android:layout_width="0dp"
@@ -132,8 +131,79 @@
         app:layout_constraintStart_toEndOf="@+id/checkbox_meat"
         app:layout_constraintTop_toBottomOf="@+id/tag_label" />
     <!-- ingredients -->
+    <TextView
+        android:id="@+id/ingredients_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/ingredients_label_string"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkbox_meat" />
+    <EditText
+        android:id="@+id/ingredients_text"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintBaseline_toBaselineOf="@+id/ingredients_label"
+        app:layout_constraintStart_toEndOf="@+id/checkbox_meat" />
+    <Spinner
+        android:id="@+id/ingredients_spinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ingredients_text"
+        app:layout_constraintTop_toBottomOf="@+id/checkbox_meat" />
+    <EditText
+        android:id="@+id/ingredients_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:ems="10"
+        android:inputType="text"
+        app:layout_constraintStart_toEndOf="@+id/ingredients_label"
+        app:layout_constraintTop_toBottomOf="@+id/ingredients_text"/>
 
     <!-- instructions -->
-
+    <TextView
+        android:id="@+id/instructions_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/instructions_label_string"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ingredients_item" />
+    <EditText
+        android:id="@+id/instructions_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:ems="10"
+        android:inputType="text|textAutoComplete|textCapSentences|textAutoCorrect|textMultiLine"
+        app:layout_constraintBaseline_toBaselineOf="@+id/instructions_label"
+        app:layout_constraintStart_toEndOf="@+id/instructions_label" />
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/done_button"
+        android:onClick="pleaseHideKeyboard"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/instructions_text"
+        app:layout_constraintStart_toEndOf="@+id/instructions_text" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

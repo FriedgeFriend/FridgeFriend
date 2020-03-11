@@ -1,5 +1,7 @@
 package com.example.fridgefriend;
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -10,9 +12,11 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.Spinner;
 
 public class UploadRecipeActivity extends MainActivity implements AdapterView.OnItemSelectedListener {
@@ -41,10 +45,20 @@ public class UploadRecipeActivity extends MainActivity implements AdapterView.On
         if (spinnerTime != null) {
             spinnerTime.setOnItemSelectedListener(this);
         }
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.labels_array, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource (android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<CharSequence> adapterTime = ArrayAdapter.createFromResource(this, R.array.labels_array, android.R.layout.simple_spinner_item);
+        adapterTime.setDropDownViewResource (android.R.layout.simple_spinner_dropdown_item);
         if (spinnerTime != null) {
-            spinnerTime.setAdapter(adapter);
+            spinnerTime.setAdapter(adapterTime);
+        }
+        // spinner for ingredient unit selection
+        Spinner spinnerIng = findViewById(R.id.ingredients_spinner);
+        if (spinnerIng != null) {
+            spinnerIng.setOnItemSelectedListener(this);
+        }
+        ArrayAdapter<CharSequence> adapterIng = ArrayAdapter.createFromResource(this, R.array.ingredients_array, android.R.layout.simple_spinner_item);
+        adapterIng.setDropDownViewResource (android.R.layout.simple_spinner_dropdown_item);
+        if (spinnerIng != null) {
+            spinnerIng.setAdapter(adapterIng);
         }
     }
 
@@ -69,7 +83,7 @@ public class UploadRecipeActivity extends MainActivity implements AdapterView.On
         switch(view.getId()) {
             case R.id.checkbox_peanuts:
                 if (checked) {
-                    Log.d(LOG_TAG,"Peantus checkbox selected");
+                    Log.d(LOG_TAG,"Peanuts checkbox selected");
                 } else {
                     // Remove the meat
                 } break;
@@ -86,4 +100,10 @@ public class UploadRecipeActivity extends MainActivity implements AdapterView.On
         }
     }
 
+
+    public void pleaseHideKeyboard(View view) {
+        EditText ed1 = findViewById(R.id.instructions_text);
+        InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(ed1.getWindowToken(), 0);
+    }
 }

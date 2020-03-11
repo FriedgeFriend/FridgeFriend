@@ -82,7 +82,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intentUpload);
                 return true;
             case R.id.action_fprofile:
-                // change to mockup page
+                Intent intentFProfile= new Intent(this, RecipeActivity.class);
+                startActivity(intentFProfile);
                 return true;
             case R.id.action_settings:
                 Intent intentSettings = new Intent(this, SettingsActivity.class);
