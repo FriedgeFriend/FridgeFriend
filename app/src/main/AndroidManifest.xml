@@ -9,13 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RecipeActivity"
-            android:label = "@string/recipeActivity"
+        <activity
+            android:name=".ui.login.LoginActivity"
+            android:label="@string/title_activity_login"></activity>
+        <activity
+            android:name=".RecipeActivity"
+            android:label="@string/recipeActivity"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=
-                    "com.example.fridgefriend.MainActivity" />
+                android:value="com.example.fridgefriend.MainActivity" />
         </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
