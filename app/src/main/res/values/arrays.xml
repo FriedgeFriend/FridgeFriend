@@ -6,6 +6,7 @@
         <item>Least Ingredients Total</item>
         <item>Most Ingredients Total</item>
     </string-array>
+
     <string-array name="sort_values">
         <item>leastMissing</item>
         <item>mostMissing</item>
@@ -27,5 +28,14 @@
         <item>meat</item>
         <item>dairy</item>
     </string-array>
+
+    <array name="ingredients">
+        <item>Milk</item>
+        <item>Chicken</item>
+        <item>Beef</item>
+        <item>Bread</item>
+        <item>Tomato</item>
+        <item>Potato</item>
+    </array>
 
 </resources>

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.fridgefriend.data.model.Ingredient;
 import com.example.fridgefriend.ui.login.LoginActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -16,18 +17,24 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     private final LinkedList<String> mWordList = new LinkedList<>();
+    private List<Ingredient> mIngredientList;
     private RecyclerView mRecyclerView;
-    private WordListAdapter mAdapter;
+    private RecyclerView.Adapter mAdapter;
+    private String[] mIngredientsArray;
 
     private static final String LOG_TAG = MainActivity.class.getSimpleName();
     public static final String EXTRA_MESSAGE = "com.example.android.twoactivities.extra.MESSAGE";
+    public static final String TESTER = "com.example.android.fridgefriend.MESSAGE";
     public static final int TEXT_REQUEST = 1; // Unique tag for the intent reply
     private EditText mMessageEditText;
 
@@ -46,21 +53,25 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-        // Put initial data into the word list.
-        for (int i = 0; i < 20; i++) {
-            mWordList.addLast("Word " + i);
-        }
-
-        // Create recycler view.
-        mRecyclerView = findViewById(R.id.recyclerview);
-        // Create an adapter and supply the data to be displayed.
-        mAdapter = new WordListAdapter(this, mWordList);
-        // Connect the adapter with the recycler view.
+        mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview);
+        mAdapter = new WordListAdapter(getListData());
+        LinearLayoutManager manager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(manager);
+        mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setAdapter(mAdapter);
-        // Give the recycler view a default layout manager.
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        Log.d(LOG_TAG, "BIGTEST");
 
+    }
+
+    private List<Ingredient> getListData() {
+
+        mIngredientsArray = getResources().getStringArray(R.array.ingredients);
+        mIngredientList = new ArrayList<>();
+        for (int i = 0; i < mIngredientsArray.length; i++) {
+            mIngredientList.add(new Ingredient(mIngredientsArray[i]));
+        }
+        Log.d(LOG_TAG, "VALUE" + String.valueOf(mIngredientList.get(0)));
+        return mIngredientList;
     }
 
 
@@ -99,20 +110,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void launchSecondActivity(View.OnClickListener view) {
+        String text = "";
+        for (Ingredient ingredient : mIngredientList) {
+            if (ingredient.isSelected()) {
+                text += ingredient.getText();
+            }
+        }
+        Log.d(LOG_TAG, "Output: " + text);
         Log.d(LOG_TAG, "Button clicked!");
-        //Intent intent = new Intent(this, RecipeActivity.class);
-        // String message = mMessageEditText.getText().toString();
-        // intent.putExtra(EXTRA_MESSAGE, message);
         // startActivityForResult(intent, TEXT_REQUEST);
         Intent intent = new Intent(this, RecipeActivity.class);
+        intent.putExtra(TESTER, "hello");
         startActivity(intent);
     }
 
-    public void trackItems(View view){
-        count++;
-        Snackbar.make(view, "Item Selected", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show();
-        Log.d(LOG_TAG, "Count" + count);
-    }
+//    public void trackItems(View view){
+//        count++;
+//        Snackbar.make(view, "Item Selected", Snackbar.LENGTH_LONG)
+//                .setAction("Action", null).show();
+//        Log.d(LOG_TAG, "Count" + count);
+//    }
 
 }
