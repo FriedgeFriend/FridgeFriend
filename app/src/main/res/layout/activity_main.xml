@@ -12,6 +12,7 @@
     <include
         android:id="@+id/include"
         layout="@layout/content_main"
+        android:layout_height="100px"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="-284dp" />
 
