@@ -40,12 +40,12 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
     public void onBindViewHolder(final WordViewHolder holder, int position) {
         final Ingredient ingredient = mIngredientList.get(position);
         holder.textView.setText(ingredient.getText());
-        holder.view.setBackgroundColor(ingredient.isSelected() ? Color.CYAN : Color.WHITE);
+        holder.view.setBackgroundColor(ingredient.isSelected() ? Color.rgb(35, 170, 137) : Color.WHITE);
         holder.textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 ingredient.setSelected(!ingredient.isSelected());
-                holder.view.setBackgroundColor(ingredient.isSelected() ? Color.CYAN : Color.WHITE);
+                holder.view.setBackgroundColor(ingredient.isSelected() ? Color.rgb(35, 170, 137) : Color.WHITE);
             }
         });
     }
